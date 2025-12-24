@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Smart Inventory Management with AI</h1>
+        <p>Predict stockouts and automate reordering</p>
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <main>
+        <section id="add-product">
+            <h2>Add Product</h2>
+            <form id="product-form">
+                <input type="text" id="product-name" placeholder="Product Name" required>
+                <input type="text" id="product-category" placeholder="Category" required>
+                <input type="number" id="product-price" placeholder="Price" step="0.01" required>
+                <input type="number" id="product-quantity" placeholder="Quantity" required>
+                <input type="number" id="product-threshold" placeholder="Reorder Threshold" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </section>
+
+        <section id="search-filter">
+            <h2>Search & Filter</h2>
+            <input type="text" id="search-input" placeholder="Search products...">
+            <select id="filter-category">
+                <option value="">All Categories</option>
+            </select>
+            <button id="filter-low-stock">Show Low Stock Only</button>
+        </section>
+
+        <section id="inventory">
+            <h2>Current Inventory</h2>
+            <button onclick="bulkDelete()">Bulk Delete Selected</button>
+            <ul id="product-list"></ul>
+        </section>
+
+        <section id="predictions">
+            <h2>AI Predictions</h2>
+            <ul id="prediction-list"></ul>
+        </section>
+
+        <section id="data-management">
+            <h2>Data Management</h2>
+            <button id="export-csv">Export to CSV</button>
+            <button id="import-btn">Import from CSV</button>
+            <input type="file" id="import-csv" accept=".csv" style="display: none;">
+        </section>
+
+        <section id="analytics">
+            <h2>Analytics Dashboard</h2>
+            <canvas id="inventoryChart"></canvas>
+        </section>
+
+        <section id="reorders">
+            <h2>Automated Reorders</h2>
+            <ul id="reorder-list"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
